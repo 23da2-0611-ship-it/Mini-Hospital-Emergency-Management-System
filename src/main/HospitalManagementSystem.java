@@ -1,3 +1,4 @@
+
 import classes.Patient;
 import classes.PatientBST;
 import classes.PatientQueue;
@@ -23,6 +24,7 @@ public class HospitalManagementSystem {
         int choice;
 
         do {
+
             System.out.println("\n=================================");
             System.out.println(" MINI HOSPITAL EMERGENCY SYSTEM");
             System.out.println("=================================");
@@ -190,9 +192,14 @@ public class HospitalManagementSystem {
         System.out.print("Enter Patient ID to delete: ");
         int id = scanner.nextInt();
 
-        patientBST.delete(id);
+        Patient patient = patientBST.search(id);
 
-        System.out.println("Patient deletion operation completed.");
+        if (patient != null) {
+            patientBST.delete(id);
+            System.out.println("Patient deleted successfully.");
+        } else {
+            System.out.println("Patient not found.");
+        }
     }
 
     static void addToQueue() {
@@ -303,3 +310,4 @@ public class HospitalManagementSystem {
         }
     }
 }
+
